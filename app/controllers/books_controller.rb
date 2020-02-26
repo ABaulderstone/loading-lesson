@@ -4,7 +4,7 @@ class BooksController < ApplicationController
   # GET /books
   # GET /books.json
   def index
-    @books = Book.order(created_at: :desc).includes(:author).where("authors.name = ?", "Alex").references(:author)
+    @books = Book.search(params[:search])
   end
 
   # GET /books/1
@@ -69,6 +69,6 @@ class BooksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def book_params
-      params.require(:book).permit(:title, :description, :author_id)
+      params.require(:book).permit(:title, :description, :author_id, :search )
     end
 end
