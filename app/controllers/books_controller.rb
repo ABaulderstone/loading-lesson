@@ -4,7 +4,7 @@ class BooksController < ApplicationController
   # GET /books
   # GET /books.json
   def index
-    @books = Book.order(created_at: :desc)
+    @books = Book.order(created_at: :desc).includes(:author).where("authors.name = ?", "Alex").references(:author)
   end
 
   # GET /books/1

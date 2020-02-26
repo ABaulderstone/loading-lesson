@@ -12,6 +12,7 @@
     )
     puts "created #{i +1} author"
 end 
+Author.create(name: "Alex")
 
 20.times do |i|
     Book.create(
@@ -21,3 +22,8 @@ end
     )
     puts puts "created #{i +1} book"
 end
+Book.create( 
+    title: "Being awesome at your job",
+    description: "Imagine being so great that you write bonus lessons",
+    author_id: 6
+)
